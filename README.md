@@ -1,1 +1,1 @@
-Utiliza um arquivo de sprite de um pássaro. Um sprite é um único arquivo de imagem contendo um personagem em diferentes poses, no caso um pássaro. Exibe alternadamente as diferentes imagens do pássaro do arquivo, fazendo o pássaro voar pela tela.
+Controlar o pássaro usando o teclado. 
