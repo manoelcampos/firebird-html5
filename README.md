@@ -1,1 +1,1 @@
-Incluindo a função para desenhar os retângulos
+Utiliza um arquivo de sprite de um pássaro. Um sprite é um único arquivo de imagem contendo um personagem em diferentes poses, no caso um pássaro. Exibe alternadamente as diferentes imagens do pássaro do arquivo, fazendo o pássaro voar pela tela.
