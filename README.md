@@ -1,1 +1,1 @@
-Movendo o código do pássaro para dentro de uma classe, para permitir que tenhamos vários pássaros voando na tela (versão incompleta e não funcional).
+Finalizando a classe que exibe uma imagem representando um personagem do jogo, para permitir inserir quantos personagens quisermos
