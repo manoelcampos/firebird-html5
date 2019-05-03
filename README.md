@@ -1,1 +1,1 @@
-Rolando o fundo em um Jogo: mostra como utilizar uma imagem de fundo e rolar a mesma para a esquerda, criando um efeito de movimento. Assim, temos a impressão que o pássaro está realmente voando por um determinado cenário. A apresentação em anexo mostra animações que explicam como este efeito é criado.
+Matando os oponentes

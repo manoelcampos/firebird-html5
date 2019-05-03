@@ -1,4 +1,9 @@
-let bird1, opponents, canvas, ctx; 
+/*
+Nesta versão, bird1 é o pássado que controlamos
+e opponents é o vetor de pássaros oponentes que
+desejamos matar.
+*/
+let bird1, opponents=[], canvas, ctx;
 let background, backgroundX=0;
 
 window.onload = function(){
@@ -7,9 +12,23 @@ window.onload = function(){
   ctx = canvas.getContext("2d");
 
   bird1 = new GameImage();
-  opponents = [];
+  /*
+  Queremos que ao iniciar o jogo, apareça uma quantidade
+  aleatória de pássaros oponentes.
+  Para isso, usamos a já conhecida função random da classe Math.
+  Para lembrar, o random retorna um valor aleatório entre 0 e 1.
+  Multiplicando por 6, obtemos um valor aleatório entre 0 e 5.
+  Como a quantidade de oponentes não pode ser zero,
+  somamos 1 ao resultado dessa multiplicação, obtendo
+  valores entre 1 e 6.
+  */
   let quant = Math.random()*6 + 1;
-  for(i = 0; i < quant; i++){
+  /*Como agora temos um vetor de oponentes,
+  precisamos de um for para criar os oponentes
+  dentro do vetor.
+  Veja que estamos definindo as posições x e y dos
+  oponentes aleatoriamente.*/
+  for(let i = 0; i < quant; i++){
     opponents[i] = new GameImage();
     opponents[i].dx = canvas.width * Math.random();
     opponents[i].dy = canvas.height * Math.random();
@@ -33,8 +52,15 @@ function draw(){
   backgroundX -= 8;
 
   bird1.draw();
-  for (i = 0; i < opponents.length; i++) {
-    if(!opponents[i].killed){
+  /*
+  Uma vez que criamos um vetor de oponentes, também
+  precisamos de um for para desenhar cada um dos oponentes quando
+  o jogo for desenhado.
+  Veja que vamos desenha apenas os oponentes que não tiverem sido mortos.
+  Lembre que a exclamação significa negação.
+   */
+  for (let i = 0; i < opponents.length; i++) {
+    if (!opponents[i].killed) {
       opponents[i].draw();
     }
   }
