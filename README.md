@@ -1,1 +1,1 @@
-Controlar o pássaro usando o teclado. 
+Movendo o código do pássaro para dentro de uma classe, para permitir que tenhamos vários pássaros voando na tela (versão incompleta e não funcional).

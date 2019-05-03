@@ -1,49 +1,15 @@
-<!-- 
-Este é o primeiro exemplo de como construir jogos usando HTML5 e JS.
-    
-Lembre-se que para incluir a estrutura básica de um código HTML como este,
-basta digitar ! e pressionar ENTER.
-A linha abaixo indica que estamos usando HTML5, que é pre-requisito para
-os jogos que desenvolveremos. 
-Tais jogos utilizam um recurso de tal versão do HTML chamado canvas,
-que permite criar jogos muito facilmente. -->
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Entendendo os fundamentos para criação de jogos com JS e HTML5</title>
+    <title>Game</title>
 </head>
 <body>
-    <!-- Para podermos criar jogos com HTML5, precisamos incluir esta tag canvas.
-    Ela nos permitirá desenhar a interface gráfica do jogo em uma área retangular
-    delimitada pelos atributos width (largura) e height (altura), como definido abaixo. 
+    <canvas id="gameCanvas" width="800" height="600"></canvas>
 
-    Observe que como qualquer tag em uma página HTML, definimos um id para dar um nome
-    a tal tag. Este id é fundamental para conseguirmos ter acesso a essa tag a partir do nosso código
-    JS.
-
-    Os valores de width e height podem ser definidos em percentual, como 100%.
-    -->
-    <canvas id="gameCanvas" width="640" height="480"></canvas>
-
-    <!-- Usamos a tag script abaixo para indicar que queremos incluir código JS 
-    na nossa página HTML. Porém, neste caso nosso código JS será incluído 
-    a partir de um arquivo separado, chamado de game.js
-
-    Esta é a melhor forma de incluir código JS dentro de páginas HTML,
-    pois assim, separamos totalmente o HTML do JS.
-    Uma vez que os código não ficam misturados no mesmo arquivo, fica muito mais
-    fácil de trabalhar isoladament em cada um.
-
-    O uso de JS embutido em páginas HTML (como faremos durante toda a disciplina),
-    permite que o código JS possa interagir com as tags definidas na página HTML.
-    Assim, o JS pode alterar valores de qualquer tag no HTML, incluir ou excluir tags.
-    Isto faz com que a página HTML passe a ter um comportamento dinâmico e interativo.
-    Por exemplo, podemos usar código JS para incluir ou remover elementos da página HTML,
-    de acordo com determinadas condições ou ações do usuário (como o click em um determinado botão).
-    -->
     <script src="game.js"></script>
+    <script src="GameImage.js"></script>
 </body>
 </html>
