@@ -56,8 +56,7 @@ class GameImage {
             this.speed = -movement;
         } else if (event.key == this.right) {
             this.speed = movement;
-        }
-        else if (event.key == this.up) {
+        } else if (event.key == this.up) {
             this.dy -= movement;
         } else if (event.key == this.down) {
             this.dy += movement;

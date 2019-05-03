@@ -1,1 +1,1 @@
-Criando vários pássaros na tela usando vetores. Exibindo pássaros em posições aleatórios utilizando `Math.random()`.
+Projeto para iniciar a inclusão de partículas (como bolas de fogo). 
