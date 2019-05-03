@@ -65,7 +65,7 @@ window.onload = function(){
 }
 
 function draw(){
-  if(document.getElementById("score").innerHTML == opponents.length){
+  if(opponents.length == 0){
     let nome = document.getElementById("nome");
     window.alert("Parabéns "+nome.value+". Você passou de fase.");
     window.location.reload();
@@ -90,9 +90,7 @@ function draw(){
   Lembre que a exclamação significa negação.
    */
   for (let i = 0; i < opponents.length; i++) {
-    if (!opponents[i].killed) {
       opponents[i].draw();
-    }
   }
 }
 

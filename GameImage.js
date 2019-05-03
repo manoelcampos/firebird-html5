@@ -21,6 +21,7 @@ class GameImage {
 
         this.dx = 0;
         this.dy = 20;
+        this.lives = 2;
     }
 
     draw() {

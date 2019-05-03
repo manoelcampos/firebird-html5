@@ -43,18 +43,21 @@ class Particle{
     }
 
     draw(){
-        for (let i = 0; i < this.opponents.length; i++){
-            if (this.collided(this.opponents[i]) && !this.opponents[i].killed){
-                let score = document.getElementById("score");
-                score.innerHTML++;
-                this.opponents[i].killed = true;
+        for (let i = 0; i<this.opponents.length; i++){
+            if (this.collided(this.opponents[i])){
+                this.finish = true;
+                if (--this.opponents[i].lives == 0){
+                    let score = document.getElementById("score");
+                    score.innerHTML++;
+                    this.opponents.splice(i, 1);
+                }
             }
         }
         this.dx += this.speed;
         this.dy = this.actor.dy + this.actor.sh/2.5;
         this.ctx.drawImage(this.img, this.dx, this.dy, this.dw, this.dh);
 
-        if(this.dx > 0 && this.dx < this.canvas.width){
+        if(this.dx > 0 && this.dx < this.canvas.width && !this.finish){
             requestAnimationFrame(() => this.draw());
         }
     }
