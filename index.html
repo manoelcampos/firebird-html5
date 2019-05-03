@@ -8,9 +8,11 @@
 </head>
 <body>
     <div id="dados">
-        Nome <input id="nome" type="text" size="30px" maxlength="100" />
-        Idade <input id="idade" type="number" size="30px" maxlength="3" />
-        <input type="button" value="Entrar" onclick="iniciar()" />  
+        <form onsubmit="return iniciar();" >
+            Nome <input id="nome" type="text" size="30px" maxlength="100" />
+            Idade <input id="idade" type="number" size="30px" maxlength="3" />
+            <input type="submit" value="Entrar" />  
+        </form>
     </div>
 
     <div id="game" style="display: none">

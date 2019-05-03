@@ -6,28 +6,32 @@ desejamos matar.
 let bird1, opponents=[], canvas, ctx;
 let background, backgroundX=0;
 
+
 function iniciar(){
   let nome = document.getElementById('nome');
   if (nome.value == '') {
     window.alert('Digite seu nome'); 
     nome.focus();
-    return;
+    return false;
   }
  
   let idade = document.getElementById('idade');
   if (idade.value == '') {
     window.alert('Digite sua idade');
     idade.focus();
-    return;
+    return false;
   }
 
   if (idade.value < 18) {
     window.alert('Você não tem idade para jogar este jogo violento');
-    return;
+    return false;
   }
 
   document.getElementById('game').style = 'display: all';
   document.getElementById('dados').style = 'display: none';
+
+  //Impede o form de ser de fato submetido, evitando o recarregamento da página.
+  return false;
 }
 
 window.onload = function(){
