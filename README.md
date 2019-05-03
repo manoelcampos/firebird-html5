@@ -1,0 +1,1 @@
+Incluindo a função para desenhar os retângulos
