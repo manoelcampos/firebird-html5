@@ -1,3 +1,1 @@
-Versão que permite atirar bolas de fogo e verificar se atingiu outro pássaro na tela. A classe Particle é responsável por este processo.
-
-Veja apresentação em anexo com detalhes de como é verificado se a bola de fogo colidiu com um pássaro. Tal cálculo é feito na função collided dentro da classe Particle.
+Rolando o fundo em um Jogo: mostra como utilizar uma imagem de fundo e rolar a mesma para a esquerda, criando um efeito de movimento. Assim, temos a impressão que o pássaro está realmente voando por um determinado cenário. A apresentação em anexo mostra animações que explicam como este efeito é criado.
