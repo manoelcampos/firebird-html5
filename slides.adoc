@@ -1,0 +1,125 @@
+= Linguagem de Script
+:revealjsdir: https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.3.0
+:revealjs_slideNumber: true
+:source-highlighter: highlightjs
+:icons: font
+:imagesdir: images
+:allow-uri-read:
+:safe: unsafe
+:numbered:
+:listing-caption: Listing
+
+ifdef::env-github[]
+:outfilesuffix: .adoc
+:caution-caption: :fire:
+:important-caption: :exclamation:
+:note-caption: :paperclip:
+:tip-caption: :bulb:
+:warning-caption: :warning:
+endif::[]
+
+- https://palmas.ifto.edu.br/index.php/component/content/article?id=225[Curso Técnico em Informática para Internet - EMI - IFTO]
+- http://about.me/manoelcampos[Prof. Me. Manoel Campos da Silva Filho]
+
+== Objetivos
+
+- Apresentar os fundamentos de linguagens de script
+- Introduzir os conceitos básicos de programação em JavaScript
+
+== Pré-requisitos
+
+- Lógica de Programação
+
+== Metodologia
+
+Aulas expositivas e práticas em laboratório, com aplicação da teoria no desenvolvimento de pequenas aplicações.
+
+== Plano do Curso
+
+== Método de Avaliação
+
+- Média >= 6.0 && Presenças >= 75%.
+- Atividades em sala de aula e no Moodle, a soma delas contabilizando 10 pontos por bimestre. 
+- Uma prova teórico-prática valendo 10 pontos por bimestre. 
+- Nota Final = média aritmética das notas dos bimestres.
+- Recuperação: Exame final teórico-prático.
+
+== Horário de Atendimento
+
+- Quinta-feira das 09:00 às 12:00
+- Laboratório Telemática: última sala do bloco 6
+
+== Linguagens de Script
+
+[quote]
+____
+image:script.png[width=100px] "Linguagem de programação usada para manipular, personalizar e automatizar facilidades em um sistema existente" 
+https://tc39.github.io/ecma262/#sec-overview[ECMAScript Language Specification]
+____
+
+== JavaScript
+
+- Desenvolvida em 10 dias por Brendan Eich (1995) https://en.wikipedia.org/wiki/JavaScript[<1>] https://en.wikipedia.org/wiki/JavaScript#History[<2>] image:https://upload.wikimedia.org/wikipedia/commons/thumb/d/d1/Brendan_Eich_Mozilla_Foundation_official_photo.jpg/1200px-Brendan_Eich_Mozilla_Foundation_official_photo.jpg[width=100, title="Brendan Eich: desenvolvedor do JS e co-fundador da Mozilla"]
+- Primeira linguagem a permitir interatividade em páginas Web
+
+== JavaScript
+
+[source,html]
+----
+<html>
+    <head>
+        <title>JavaScript embutido em HTML</title>
+        <meta charset="utf-8">
+    </head>
+    <body>
+        Digite uma expressão aritmética:
+        <input type="text" id="expr"/>
+        
+        <button onclick="window.alert(eval(expr.value))">OK</button>
+    </body>
+</html>
+----
+
+- Inicialmente para funcionar apenas embutida em páginas HTML
+- Primeira versão surgiu apenas para o navegador Netscape
+
+== JavaScript
+image::google-maps.png[width=200px]
+- Responsável por permitir a criação de sites como Google Maps, Facebook, etc
+- https://www.tiobe.com/tiobe-index/[Posição do JavaScript no ranking das linguagems]
+
+== JavaScript
+
+- Essencial para o desenvolvimento de páginas web
+- Fácil e divertida
+    - Criação de jogos e animações
+    - http://chromeexperiments.com
+    - https://xviniette.github.io/FlappyLearning/
+
+== Ambiente de Desenvolvimento
+
+- Um editor de texto qualquer (preferencialmente um específico pra desenvolvedores)
+- Navegador moderno
+
+== !
+
+image::vs-code.png[link=http://code.visualstudio.com]
+
+- Editor profissional de código aberto
+- Incrível suporte a JS, ajuda digitar comandos (pressione ctrl+espaço para autocompletar um comando digitado)
+- Inúmeras extensões que facilitam o desenvolvimento
+- Instale "Extensões" pela barra do lado esquerdo da tela
+    * Bracket Pair Colorizer, Prettier e Live Server
+
+== !
+
+image::firefox-chrome.png[]
+
+- Tais navegadores ornecem excelentes ferramentas para desenvolvedores
+    - Firefox: menu Ferramentas > Desenvolvimento Web > Console Web
+    - Chrome: menu Visualizar > Desenvolvedor > Consonle JavaScript
+
+== Referências
+
+- https://developer.mozilla.org/pt-BR/docs/Web/JavaScript
+- https://tc39.github.io/ecma262/
