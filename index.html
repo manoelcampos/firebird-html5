@@ -7,11 +7,20 @@
     <title>Game</title>
 </head>
 <body>
-    <b><div id="score" style="width: 640px; text-align: right; position: absolute; top: 10px">0</div></b>
-    <canvas id="gameCanvas" width="640" height="480"></canvas>
+    <div id="dados">
+        Nome <input id="nome" type="text" size="30px" maxlength="100" />
+        Idade <input id="idade" type="number" size="30px" maxlength="3" />
+        <input type="button" value="Entrar" onclick="iniciar()" />  
+    </div>
+
+    <div id="game" style="display: none">
+        <b><div id="score" style="width: 640px; text-align: right; position: absolute; top: 10px">0</div></b>
+        <canvas id="gameCanvas" width="640" height="480"></canvas>
+    </div>
 
     <script src="game.js"></script>
     <script src="Particle.js"></script>
     <script src="GameImage.js"></script>
+    
 </body>
 </html>

@@ -1,1 +1,1 @@
-Matando os oponentes
+Finalizando jogo e voltando para a tela de entrada

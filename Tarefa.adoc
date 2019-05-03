@@ -1,0 +1,15 @@
+Tarefa
+
+- Fazer cada oponente voar em velocidades aleatoriamente diferentes.
+- Fazer cada oponente morrer somente após ser atingido 2 vezes.
+  Você perceberá que com esta alteração, 
+  o código que identifica que todos o pássaros foram mortos não
+  funcionará mais.
+- Fazer o fogo atingir apenas um pássado por vez.
+  Quando o fogo colidir com um pássaro, ele deve deixar
+  de ser desenhado na tela.
+  Para isso, cada oponente precisará ter uma variável
+  "vidas (lives)".
+- Inserir botão para sair do jogo.
+  Quando clicar no botão, deve-se atualizar a página
+  para voltar ao início.

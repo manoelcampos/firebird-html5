@@ -6,6 +6,30 @@ desejamos matar.
 let bird1, opponents=[], canvas, ctx;
 let background, backgroundX=0;
 
+function iniciar(){
+  let nome = document.getElementById('nome');
+  if (nome.value == '') {
+    window.alert('Digite seu nome'); 
+    nome.focus();
+    return;
+  }
+ 
+  let idade = document.getElementById('idade');
+  if (idade.value == '') {
+    window.alert('Digite sua idade');
+    idade.focus();
+    return;
+  }
+
+  if (idade.value < 18) {
+    window.alert('Você não tem idade para jogar este jogo violento');
+    return;
+  }
+
+  document.getElementById('game').style = 'display: all';
+  document.getElementById('dados').style = 'display: none';
+}
+
 window.onload = function(){
   console.log("Iniciou");
   canvas = document.getElementById("gameCanvas");
@@ -41,6 +65,12 @@ window.onload = function(){
 }
 
 function draw(){
+  if(document.getElementById("score").innerHTML == opponents.length){
+    let nome = document.getElementById("nome");
+    window.alert("Parabéns "+nome.value+". Você passou de fase.");
+    window.location.reload();
+    return;
+  }
   ctx.fillStyle = "#0f9";
   ctx.fillRect(0, 0, canvas.width, canvas.height);
 

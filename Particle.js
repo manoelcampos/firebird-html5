@@ -43,42 +43,11 @@ class Particle{
     }
 
     draw(){
-        /* Como agora a partícula recebe um vetor de oponentes e não
-        apenas um oponente, ao desenhar a partícula e verificar se ela
-        atingiu algum oponente, precisamos usar um for.
-        O for percorrer cada um dos oponentes e verifica
-        se a partícula colidiu com tal oponente.
-        Se colidiu e o oponente não tinha morrido ainda,
-        alteramos a variável (propriedade) killed do oponente
-        para true para indicar que ele morreu e não será mais desenhado
-        na tela.
-         */
         for (let i = 0; i < this.opponents.length; i++){
-            if(this.collided(this.opponents[i])){
-                if (!this.opponents[i].killed){
-                    /* Para aumentar a pontuação a
-                    cada oponente morto, precisamos acessar a tag
-                    no arquivo index.html que exibirá tal pontuação.
-                    Neste caso, incluímos uma tag div dentro do HTML.
-                    Um div funciona como uma caixa onde podemos colocar
-                    o que quisermos: textos, números, outras tags HTML, etc. 
-                    Em JS, para termos acesso a qualquer elemento dentro de
-                    uma página HTML, podemos usar a função document.getElementById,
-                    indicando o ID da tag que desejamos acessar.
-                    Já fizemos isso para acessar o canvas a partir do nosso código JS.
-                    Como sabemos que a tag cujo ID é igual a "score" é uma tag div,
-                    os divs possuem uma propriedade innerHTML.
-                    Cada tag possui propriedades diferentes. Por exemplo,
-                    uma tag img possui a propriedade (atributo) src como principal.
-                    A propriedade innerHTML das tags div permitem alterar o conteúdo
-                    exibido na tag. Neste caso, como estamos exibindo a pontuação
-                    atual, usamos o ++ para somar 1 a tal pontuação a cada vez que
-                    matarmos um pássaro.
-                    */
-                    let score = document.getElementById("score");
-                    score.innerHTML++;
-                    this.opponents[i].killed = true;
-                }
+            if (this.collided(this.opponents[i]) && !this.opponents[i].killed){
+                let score = document.getElementById("score");
+                score.innerHTML++;
+                this.opponents[i].killed = true;
             }
         }
         this.dx += this.speed;
