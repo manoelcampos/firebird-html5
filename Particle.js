@@ -16,7 +16,7 @@
  * Assim, não vamos nos preocupar com isto.
  */
 class Particle{
-    constructor(){
+    constructor(actor, opponent){
         this.canvas = document.getElementById("gameCanvas");
         this.ctx = this.canvas.getContext("2d");
         this.img = new Image();
@@ -26,6 +26,48 @@ class Particle{
 
         this.dw = 20;
         this.dh = 20;
+        this.actor = actor;
+        this.opponent = opponent;
+        this.speed = this.actor.speed;
+        if (this.speed >= 0) {
+            this.dx = this.actor.dx + this.actor.sw;
+        } else {
+            this.dx = this.actor.dx - this.actor.sw/3;
+        }
+    }
+
+    /**
+     * Verifica se a partícula atirada
+     * pelo ator (actor / pássaro a qual a partícula
+     * está vinculada) atigiu um determinado oponente
+     * @param opponent oponente que deseja-se verificar
+     * se foi atingido pela partícula atirada pelo ator
+     * @return true se a partícula colidiu no oponente, 
+     * false caso não tenha atingido
+     */
+    collided(opponent){
+        /*xCoolide recebe true ou false para indicar
+        se */
+        const xCollide = this.dx >= opponent.dx &&
+                         this.dx <= opponent.dx + opponent.sw;
+        const yCollide = this.dy >= opponent.dy &&
+                         this.dy <= opponent.dy + opponent.sh;
+
+        /*Faz a função retornar o valor da condição abaixo,
+        ou seja, true ou false.
+        Isto é uma forma simplificada de fazer:
+        if(condicao)
+            return true;
+        else return false;
+        
+        Neste caso, a condição é xCollide && yCollide.
+        Sempre que temos uma função que retorna true de acordo
+        com uma condição e false caso a condição
+        não seja satisfeita, não precisamos escrever um if..else
+        para isto. Como a própria condição tem um resultado true ou false,
+        basta retornar a própria condição para fazer a função retornar
+        true se a condição for verdadeira e false se a condição for falsa.*/
+        return xCollide && yCollide;
     }
 
     /**
@@ -39,7 +81,12 @@ class Particle{
      * incrementar a coordenada x (variável dx).
      */
     draw(){
-        this.dx += 10;
+        if(this.collided(this.opponent)){
+            this.opponent.killed = true;
+        }
+        this.dx += this.speed;
+        this.dy = this.actor.dy + this.actor.sh/2.5;
+
         /*Observe que no GameImage utilizamos uma versão da função
         drawImage que requer nove parâmetros. Neste caso,
         como nosso arquivo contém apenas uma imagem, podemos

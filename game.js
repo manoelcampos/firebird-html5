@@ -17,14 +17,15 @@ function draw(){
   ctx.fillRect(0, 0, canvas.width, canvas.height);
 
   bird1.draw();
-  bird2.draw();
+  if(!bird2.killed){
+    bird2.draw();
+  }
 }
 
 window.onkeydown = function(event){
   bird1.onkeydown(event);
   if(event.key == ' '){
-    let fireball = new Particle();
-    fireball.dx = bird1.dx + bird1.sw;
+    let fireball = new Particle(bird1, bird2);
     fireball.draw();
   }
 }
