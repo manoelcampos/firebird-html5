@@ -1,0 +1,10 @@
+= Exemplo de jogo usando Canvas do HTML5
+
+Exemplo de jogo básico utilizando Canvas do HTML5
+com JavaScript orientado a objeto (classes do ES6).
+
+image:game.gif[]
+
+== Extras
+
+Acesse o https://github.com/manoelcampos/jogo-html5-canvas/wiki[Wiki] para materiais de apoio.
