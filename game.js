@@ -22,6 +22,11 @@ function draw(){
 
 window.onkeydown = function(event){
   bird1.onkeydown(event);
+  if(event.key == ' '){
+    let fireball = new Particle();
+    fireball.dx = bird1.dx + bird1.sw;
+    fireball.draw();
+  }
 }
 
 

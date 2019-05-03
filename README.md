@@ -1,1 +1,1 @@
-Projeto para iniciar a inclusão de partículas (como bolas de fogo). 
+Código com a inclusão de partículas.
