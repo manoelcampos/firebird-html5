@@ -1,1 +1,1 @@
-Finalizando a classe que exibe uma imagem representando um personagem do jogo, para permitir inserir quantos personagens quisermos
+Criando vários pássaros na tela usando vetores. Exibindo pássaros em posições aleatórios utilizando `Math.random()`.

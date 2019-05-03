@@ -1,83 +1,57 @@
-let bird1;
+let canvas, ctx;
+let birds;
 
-/**
- * Depois que criamos o arquivo GameImage.js,
- * precisamos incluir ele no nosso arquivo index.html
- * para só assim poder utilizá-lo aqui.
- * O arquivo GameImage.js define a classe
- * GameImage.
- * 
- * Então incluímos o arquivo game.js e depois o GameImage.js
- * no HTML. Ao tentar executar o código
- * sem o uso do window.onload abaixo (como fizemos em todas as versões
- * anteriores do jogo), ocorreu um erro indicando que GameImage (a classe)
- * não foi definida (ou seja, não existe).
- * 
- * Isto ocorria pelo fato de estarmos executando o game.js e só depois incluindo
- * o GameImage.js para execução.
- * Assim, como o primeiro depende do segundo, poderíamos mudar a ordem de inclusão
- * dos arquivos no HTML. Mas justamente para não ficarmos nos preocupando
- * com a ordem de dependência dos arquivos JS (até porque podemos 
- * ter muitos arquivos JS e dependências mais complexas),
- * usamos o atributo onload do objeto window (que representa a janela da página
- * aberta no navegador) para executar determinado código somente
- * quando a página HTML tiver sido carregada totalmente.
- * Isto é, o código HTML foi exibido e os arquivos que necessários
- * foram todos incluídos (como os arquivos JS).
- * 
- * JavaScript é uma das poucas linguagens onde variáveis
- * armazenem, além de dados, funções.
- * Isto é um dos recursos mais úteis da linguagem.
- * O atributo onload é uma dessas variáveis que esperam que
- * seja armazenada uma função nela.
- * Como já dito em aula, em JS, variáveis com começam com "on"
- * indicam que representam um evento.
- * O onload significa "ao carregar a página".
- * 
- * Ao atribuir uma função para o window.onload,
- * estamos indicando que tal função deve ser executada
- * somente quando a página for totalmente carregada.
- * Com isto, evitamos o erro mencionado acima, de tentar
- * usar algo que está em outro arquivo (como a classe GameImage),
- * mas que o arquivo ainda não foi carregado.
- */
 window.onload = function(){
   console.log("Iniciou");
+  canvas = document.getElementById("gameCanvas");
+  ctx = canvas.getContext("2d");
 
-  /*
-  bird1 é uma variável que foi declarada fora da função onload,
-  mas que só será inicializada quando tal função for executada,
-  ou seja, quando a página tiver sido totalmente carregada. 
-  Observe que, como o tipo de bird1 será a classe GameImage,
-  para representar um personagem do jogo,
-  precisamos fazer new GameImage() para poder criarmos
-  tal personagem.
+  //Cria um vetor para armazenar quantos pássaros quisermos
+  birds = [];
+  /*Cria uma constante que define aleatoriamente
+  o total de pássaros a serem exibidos.
+  A função Math.random() é que faz isso.
+  Ela retorna um valor entre 0 e menor que 1. Se multiplicarmos
+  por 10, teremos um valor entre 0 e 9.
+  Para obter valores entre 1 e 10, basta somar 1.*/
+  const total = Math.random()*10 + 1;
 
-  Isso é assim para criar qualquer variável cujo tipo seja uma classe.
-  Usando variável = new NomeDaClasse().
-  */
-  bird1 = new GameImage();
+  //Executa um for que cria o total de pássaros definido na constante "total".
+  for (var i = 0; i < total; i++) {
+    //Armazena um novo pássaro na posição i do vetor birds.
+    birds[i] = new GameImage();
+    /*
+    Define aleatoriamente as posições de destino x e y do pássaro.
+    Como estamos multiplicando o valor aleatório de Math.random() pela largura do canvas (canvas.width),
+    isto indica que, como a largura do canvas foi definida como 640 (no index.html),
+    então geraremos um valor aleatório entre 0 e 640.
+    O mesmo é feito para a posição y, baseada na altura do canvas.
+    */
+    birds[i].dx = Math.random()*canvas.width;
+    birds[i].dy = Math.random()*canvas.height;
+  }
+
+
+  //Faz com que apenas o pássaro na posição 1 (o 2º), seja controlado utilizando as teclas a, d, w, s.
+  birds[1].left = "a";
+  birds[1].right = "d";
+  birds[1].up = "w";
+  birds[1].down = "s";
+
   setInterval(draw, 60);   
 }
 
 function draw(){
-  bird1.draw();
+  ctx.fillStyle = "#0f9";
+  ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+  for (var i = 0; i < birds.length; i++){
+    birds[i].draw();
+  }
 }
 
 window.onkeydown = function(event){
-  const movement = Math.abs(bird1.speed);
-  if (event.key == "ArrowLeft") { 
-    bird1.speed = -movement;
-  } else if (event.key == "ArrowRight") { 
-    bird1.speed = movement;
+  for (var i = 0; i < birds.length; i++) {
+    birds[i].onkeydown(event);
   }
-  else if (event.key == "ArrowUp"){ 
-    bird1.dy -= movement;
-  } else if (event.key == "ArrowDown") { 
-    bird1.dy += movement;
-  }
-
-  //console.log(event.key + ": #" + event.keyCode + " speed: " + bird1.speed);
 }
-
-
